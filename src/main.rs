@@ -49,7 +49,7 @@ async fn run() {
 
 async fn is_sticker_nude(_bot: &Bot, file_id_download: &String, chat_id: &i64) -> bool{
     let random_num: u32 = rand::thread_rng().gen_range(1..10000);
-    let path = &format!("F:/NudeDatabase/{}-{}.png", &chat_id, &random_num);
+    let path = &format!("home/hamedgk/Desktop/NudeImages/{}-{}.png", &chat_id, &random_num);
     let mut file = File::create(&path).await.unwrap();
     let TgFile {ref file_path, .. } = _bot.get_file(file_id_download).send().await.unwrap();
     _bot.download_file(&file_path, &mut file).await.unwrap();
