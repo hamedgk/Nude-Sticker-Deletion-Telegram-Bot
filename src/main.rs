@@ -61,17 +61,7 @@ async fn is_sticker_nude(_bot: &Bot, file_id_download: &String, chat_id: &i64) -
     nude::scan(&img).is_nude()
 }
 
-pub async fn convert_to_png(path: &String){
-    // this for loop is for converting unix like path to windows like, due to / and \ defference
-    // if you're using unix os, you can delete it!
-    let mut new_string = String::new();
-    for each in path.chars(){
-        if each == '/'{
-            new_string.push('\\');
-        }else {
-            new_string.push(each);
-        }
-    }
+async fn convert_to_png(path: &String){
     println!("{}", new_string);
     Command::new("magick")
         .arg(new_string.as_str())
